@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" >
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Cloud-Wizard Demo</title>
+    {% endif %}
+</head>
+
+<body>
+    <nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li class="has-children"><a>group > </a>
+        <ul>
+        <li><a href="/book">Book</a></li>
+        </ul>
+    </ul>
+</nav>
+
+
+    {% for info_message in get_flashed_messages() %}
+    <div>{{ info_message }}</div>
+    {% endfor %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <p>Powered by Clowiz (The Cloud-Wizard)</p>
+    </footer>
+</body>
+
+</html>
